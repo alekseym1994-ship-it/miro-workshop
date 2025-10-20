@@ -1,32 +1,24 @@
-
+// app.js
 const logEl = document.getElementById('log');
 const runBtn = document.getElementById('runBtn');
 
-function log(msg) {
-  logEl.textContent += (msg + "\n");
-}
+function log(msg){ logEl.textContent += msg + "\n"; }
 
-async function init() {
-  try {
-    await miro.board.ui.onReady();
-    log("Готово. Можно создавать воркшоп.");
-    runBtn.disabled = false;
-  } catch (e) {
-    log("Ошибка инициализации SDK: " + e.message);
-  }
-}
+// SDK v2: miro.onReady(...)
+miro.onReady(async () => {
+  log("SDK готов ✅");
+  runBtn.disabled = false;
+});
 
 runBtn.addEventListener('click', async () => {
   runBtn.disabled = true;
-  log("Создание фреймов...");
+  log("Создаю фреймы...");
   try {
-    await generateWorkshop();
-    log("✅ Готово! Шаблон создан.");
+    await generateWorkshop();          // функция из workshop_generator.js
+    log("Готово! Шаблон создан ✅");
   } catch (e) {
-    log("❌ Ошибка: " + e.message);
+    log("❌ Ошибка: " + (e?.message || e));
   } finally {
     runBtn.disabled = false;
   }
 });
-
-init();
