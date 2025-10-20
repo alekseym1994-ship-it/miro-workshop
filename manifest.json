@@ -1,0 +1,21 @@
+{
+  "appId": "workshop-board-generator-ru",
+  "name": "Создать воркшоп по чатам",
+  "description": "Кнопка для автоматического разворачивания воркшоп-шаблона (редизайн раздела «Чаты»). RU, минималистично, горизонтальная лента.",
+  "scopes": [
+    "boards:read",
+    "boards:write"
+  ],
+  "editorUrl": "APP_BASE_URL/index.html",
+  "sdkUri": "https://miro.com/app/static/sdk.2.0.js",
+  "permissions": {
+    "board": {
+      "read": "granted",
+      "write": "granted"
+    }
+  },
+  "icons": {
+    "48": "APP_BASE_URL/icon-48.png",
+    "96": "APP_BASE_URL/icon-96.png"
+  }
+}
